@@ -26,4 +26,5 @@ class rbldnsd::params {
   $package        = 'rbldnsd'
   $servicename    = 'rbldnsd'
   $service_ensure = 'running'
+  $zones          = ''
 }

@@ -14,7 +14,7 @@
 # Sample Usage:
 #
 class rbldnsd (
-    $zones,
+    $zones          = $rbldnsd::params::zones,
     $ip             = $rbldnsd::params::ip,
     $root           = $rbldnsd::params::root,
     $workingdir     = $rbldnsd::params::workingdir,

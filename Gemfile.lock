@@ -414,6 +414,7 @@ GEM
       unf_ext
     unf_ext (0.0.7.2)
     unicode-display_width (1.1.0)
+    vagrant-wrapper (2.0.3)
     websocket (1.2.3)
 
 PLATFORMS
@@ -445,6 +446,7 @@ DEPENDENCIES
   simplecov-console
   travis
   travis-lint
+  vagrant-wrapper
 
 BUNDLED WITH
    1.10.6

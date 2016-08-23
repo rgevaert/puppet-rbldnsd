@@ -10,16 +10,41 @@ describe 'rbldnsd class' do
 
       # Run it twice and test for idempotency
       apply_manifest(pp, :catch_failures => true)
-      apply_manifest(pp, :catch_changes  => true)
+      apply_manifest(pp, :catch_failures => true)
+    end
+
+    describe user('rbldns') do
+        it { should exist }
     end
 
     describe package('rbldnsd') do
-      it { is_expected.to be_installed }
+      it { should be_installed }
     end
 
     describe service('rbldnsd') do
-      it { is_expected.to be_enabled }
-      it { is_expected.to be_running }
+      it { should be_enabled }
+      it { should be_running }
+    end
+
+    describe file('/etc/default/rbldnsd') do
+      it { should be_file }
+      it { should be_mode 644 }
+      it { should be_owned_by 'root'}
+      it { should be_grouped_into 'root'}
+    end
+
+    describe file('/var/lib/rbldns') do
+      it { should be_directory }
+      it { should be_mode 755 }
+      it { should be_owned_by 'root'}
+      it { should be_grouped_into 'root'}
+    end
+
+    describe file('/var/lib/rbldns/dnsbl') do
+      it { should be_directory }
+      it { should be_mode 755 }
+      it { should be_owned_by 'rbldns'}
+      it { should be_grouped_into 'root'}
     end
   end
 end
