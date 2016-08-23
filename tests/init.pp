@@ -1,1 +1,1 @@
-include rbldnsd
+include ::rbldnsd

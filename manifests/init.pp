@@ -14,7 +14,7 @@
 # Sample Usage:
 #
 class rbldnsd (
-    $zones,
+    $zones          = $rbldnsd::params::zones,
     $ip             = $rbldnsd::params::ip,
     $root           = $rbldnsd::params::root,
     $workingdir     = $rbldnsd::params::workingdir,
@@ -26,9 +26,9 @@ class rbldnsd (
     $package        = $rbldnsd::params::package,
     $servicename    = $rbldnsd::params::servicename,
     $service_ensure = $rbldnsd::params::service_ensure,
-  ) inherits rbldnsd::params {
+  ) inherits ::rbldnsd::params {
 
-  class{'rbldnsd::install':;} ~>
-    class{'rbldnsd::config':;} ~>
-    class{'rbldnsd::service':;}
+    class{'::rbldnsd::install':;} ~>
+    class{'::rbldnsd::config':;} ~>
+    class{'::rbldnsd::service':;}
 }

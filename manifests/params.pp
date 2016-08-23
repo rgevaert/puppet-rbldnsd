@@ -1,3 +1,7 @@
+# Class rbldnsd::params
+# =====================
+#
+#
 class rbldnsd::params {
 
   # the IP that rbldnsd binds to
@@ -22,4 +26,5 @@ class rbldnsd::params {
   $package        = 'rbldnsd'
   $servicename    = 'rbldnsd'
   $service_ensure = 'running'
+  $zones          = ''
 }

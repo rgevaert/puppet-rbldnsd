@@ -1,18 +1,16 @@
-require 'pathname'
-dir = Pathname.new(__FILE__).parent
-$LOAD_PATH.unshift(dir, dir + 'lib', dir + '../lib')
+require 'puppetlabs_spec_helper/module_spec_helper'
+require 'rspec-puppet-facts'
 
-require 'mocha'
-require 'puppet'
-gem 'rspec', '=1.2.9'
-require 'spec/autorun'
+include RspecPuppetFacts
 
-Spec::Runner.configure do |config|
-    config.mock_with :mocha
-end
+require 'simplecov'
+require 'simplecov-console'
 
-# We need this because the RAL uses 'should' as a method.  This
-# allows us the same behaviour but with a different method name.
-class Object
-    alias :must :should
+SimpleCov.start do
+  add_filter '/spec'
+  add_filter '/vendor'
+  formatter SimpleCov::Formatter::MultiFormatter.new([
+    SimpleCov::Formatter::HTMLFormatter,
+    SimpleCov::Formatter::Console
+  ])
 end
