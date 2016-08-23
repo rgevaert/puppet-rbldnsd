@@ -19,13 +19,13 @@ class rbldnsd::config (
       mode    => '0644',
       content => template('rbldnsd/default.erb');
 
-    $rbldnsd::root:
+    $root:
       ensure => directory,
       mode   => '0755',
       owner  => root,
       group  => root;
 
-    '/var/lib/rbldns/dnsbl':
+    "${root}/${workingdir}":
       ensure => directory,
       mode   => '0755',
       owner  => rbldns,
