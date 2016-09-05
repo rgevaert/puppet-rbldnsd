@@ -3,10 +3,10 @@ This module manages rbldnsd on Debian.
 This was forked from Matt Taggart <taggart@riseup.net>
 https://labs.riseup.net/code/projects/module-rbldnsd/
 
-
-
 Changes by Rudy Gevaert
 https://github.com/rgevaert/puppet-rbldnsd
 
 - Split up the init.pp to use other pattern
 - Make puppet-lint happy
+- Supports Puppet 4
+- Rspec and acceptance tests

@@ -44,10 +44,10 @@
 # See rbldnsd(8) for descriptions of options.
 #
 RBLDNSD="dnsbl -f \
-	-b <%= @ip %> -r <%= @root %> \
-	-w <%= @workingdir %> \
-	-s +<%= @stats %> \
-	<% if @acl != '' -%>
-	:acl:<%= @acl %> \
-	<% end -%>
-	<%= @zones %>"
+  -b <%= @ip %> -r <%= @root %> \
+  -w <%= @workingdir %> \
+  -s +<%= @stats %> \
+  <% if @acl != '' -%>
+  :acl:<%= @acl %> \
+  <% end -%>
+  <%= @zones %>"
